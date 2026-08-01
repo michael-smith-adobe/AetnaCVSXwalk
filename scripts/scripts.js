@@ -118,6 +118,14 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  // Fallback theme resolution: the `theme` metadata drives the body class, but
+  // it may not survive every delivery pipeline (e.g. AEM author markup). Derive
+  // the theme from the URL path as a safety net so per-brand styling (body.cvs /
+  // body.aetna) still applies. Path segment wins are additive, never removed.
+  const themeFromPath = window.location.pathname.match(/\/(cvs|aetna)(?:\/|$)/);
+  if (themeFromPath && !doc.body.classList.contains(themeFromPath[1])) {
+    doc.body.classList.add(themeFromPath[1]);
+  }
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }

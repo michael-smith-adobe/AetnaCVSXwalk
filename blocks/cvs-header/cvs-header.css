@@ -1,0 +1,311 @@
+/* stylelint-disable no-descending-specificity */
+
+/* ============================================================
+   CVS-style header — mirrors cvs.com (lean / streamlined)
+   Brand bar: logo · store selector · thin search pill · Sign in · Cart
+   Quick links bar: black "Menu" button + compact horizontal link row
+   ============================================================ */
+
+:root {
+  --cvs-red: rgb(204 0 0);
+  --cvs-blue: rgb(0 85 165);
+  --cvs-ink: rgb(51 51 51);
+  --cvs-muted: rgb(101 101 101);
+  --cvs-green: rgb(0 122 51);
+  --cvs-border: rgb(216 216 216);
+  --cvs-amber: rgb(255 179 0);
+  --cvs-max: 1600px;
+}
+
+/* header takes natural height (boilerplate pins it to a short fixed value) */
+header {
+  height: auto;
+}
+
+header .cvs-nav-wrapper {
+  width: 100%;
+  background: #fff;
+  position: relative;
+  z-index: 20;
+  font-family: var(--body-font-family);
+}
+
+header .cvs-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header .cvs-nav a:any-link {
+  color: var(--cvs-ink);
+  text-decoration: none;
+}
+
+/* ---------- Brand row ---------- */
+header .cvs-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: var(--cvs-max);
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+header .cvs-logo {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+header .cvs-logo img {
+  display: block;
+  width: 64px;
+  height: auto;
+}
+
+/* store selector — compact, icon + label */
+header .cvs-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 4px 6px;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--cvs-ink);
+  white-space: nowrap;
+}
+
+header .cvs-store::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="1.8"><path d="M4 9V21h16V9"/><path d="M2 9l2-5h16l2 5a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+header .cvs-store:hover {
+  text-decoration: underline;
+}
+
+/* search — thin light-bordered pill with a plain dark magnifier inside */
+header .cvs-search {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin: 0 8px;
+  border: 1px solid var(--cvs-ink);
+  border-radius: 24px;
+  padding: 0 14px 0 20px;
+  height: 44px;
+}
+
+header .cvs-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  font: inherit;
+  font-size: 15px;
+  color: var(--cvs-ink);
+  background: transparent;
+}
+
+header .cvs-search input::placeholder {
+  color: var(--cvs-muted);
+}
+
+header .cvs-search button {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+header .cvs-search button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+/* account actions */
+header .cvs-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex: 0 0 auto;
+}
+
+header .cvs-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--cvs-blue);
+  white-space: nowrap;
+}
+
+header .cvs-actions a:hover {
+  text-decoration: underline;
+}
+
+header .cvs-signin::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230055a5" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* cart shows an icon + a red count badge; label is visually hidden */
+header .cvs-cart {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  font-size: 0;
+}
+
+header .cvs-cart::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230055a5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L23 7H6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+header .cvs-cart .cvs-cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--cvs-red);
+  color: #fff;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* ---------- Quick links row ---------- */
+header .cvs-quicklinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--cvs-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  border-top: 1px solid var(--cvs-border);
+}
+
+header .cvs-menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  padding: 12px 4px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 15px;
+  color: var(--cvs-ink);
+  cursor: pointer;
+}
+
+header .cvs-menu-button::before {
+  content: '';
+  width: 18px;
+  height: 14px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" stroke="%23333333" stroke-width="2" stroke-linecap="round"><line x1="1" y1="2" x2="23" y2="2"/><line x1="1" y1="9" x2="23" y2="9"/><line x1="1" y1="16" x2="23" y2="16"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header .cvs-quicklinks-list {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+header .cvs-quicklinks-list a {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px;
+  font-size: 14px;
+  color: var(--cvs-ink);
+  border-bottom: 3px solid transparent;
+}
+
+header .cvs-quicklinks-list a:hover {
+  color: var(--cvs-red);
+}
+
+/* first quick link reads as the active item (amber underline, like cvs.com) */
+header .cvs-quicklinks-list li:first-child a {
+  color: var(--cvs-red);
+  border-bottom-color: var(--cvs-amber);
+}
+
+/* ============================================================
+   Mobile (< 900px)
+   ============================================================ */
+@media (width < 900px) {
+  header .cvs-brand {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 16px;
+  }
+
+  header .cvs-search {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0;
+  }
+
+  header .cvs-store {
+    display: none;
+  }
+
+  header .cvs-actions {
+    margin-left: auto;
+  }
+
+  /* quick links collapse behind the Menu button */
+  header .cvs-quicklinks {
+    flex-wrap: wrap;
+  }
+
+  header .cvs-quicklinks-list {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.cvs-menu-open header .cvs-quicklinks-list {
+    display: flex;
+  }
+
+  header .cvs-quicklinks-list a {
+    padding: 14px 8px;
+    border-bottom: 1px solid var(--cvs-border);
+  }
+
+  header .cvs-quicklinks-list li:first-child a {
+    border-bottom-color: var(--cvs-border);
+  }
+}

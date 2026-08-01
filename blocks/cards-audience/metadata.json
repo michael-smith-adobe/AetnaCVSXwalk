@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-audience",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-31T20:20:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.aetna.com/",
+    "originPage": "Aetna homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "audience-nav",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + linked heading + description",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "audience selection / next-best-action tiles",
+      "navigation card grids with pictogram icons and linked headings",
+      "3-up bordered white card rows on light backgrounds"
+    ],
+    "notSuitableFor": [
+      "product cards with large photos",
+      "cards requiring full-bleed background images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 2,
+    "lastUsed": "2026-07-31T20:20:00.000Z"
+  }
+}

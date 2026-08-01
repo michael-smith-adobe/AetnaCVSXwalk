@@ -1,0 +1,63 @@
+/*
+ * brand.css — Aetna design tokens (extracted from https://www.aetna.com/)
+ * Font: CVS Health Sans (proprietary), referenced from the source-hosted WOFF files.
+ */
+
+@font-face {
+  font-family: 'CVS Health Sans';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://www.aetna.com/content/dam/system/fonts/cvs-open-sans/light/CVSHealthSans_W_Lt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CVS Health Sans';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://www.aetna.com/content/dam/system/fonts/cvs-open-sans/regular/CVSHealthSans_W_Rg.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CVS Health Sans';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://www.aetna.com/content/dam/system/fonts/cvs-open-sans/semibold/CVSHealthSans_W_Md.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CVS Health Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://www.aetna.com/content/dam/system/fonts/cvs-open-sans/bold/CVSHealthSans_W_Bd.woff') format('woff');
+}
+
+:root {
+  /* Fonts */
+  --heading-font-family: 'CVS Health Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+  --body-font-family: 'CVS Health Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+
+  /* Colors */
+  --background-color: #fff;
+  --text-color: rgb(38 38 38);
+  --link-color: rgb(137 50 175);
+  --link-hover-color: rgb(106 33 138);
+  --brand-purple: rgb(137 50 175);
+  --section-light: rgb(236 236 236);
+
+  /* Spacing */
+  --section-padding: 48px;
+  --content-max-width: 1488px;
+  --nav-height: 66px;
+
+  /* Heading sizes (desktop) */
+  --heading-size-xxl: 68px;
+  --heading-size-xl: 41.6px;
+  --heading-size-l: 20px;
+  --heading-size-m: 18px;
+  --heading-size-s: 16px;
+  --heading-size-xs: 14px;
+}

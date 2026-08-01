@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.aetna.com/",
+  "path": "index",
+  "timestamp": "2026-07-31T20:34:26.357Z",
+  "title": "Health Insurance Plans | Aetna",
+  "template": "homepage",
+  "blocks": [
+    "hero-banner",
+    "cards-audience",
+    "cards-audience"
+  ]
+}

@@ -1,20 +1,204 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/* stylelint-disable no-descending-specificity */
+
+/* ============================================================
+   Aetna footer — white body with link columns + purple bottom bar
+   ============================================================ */
+
+:root {
+  --footer-purple: rgb(90 46 111);
+  --footer-content-max: 1488px;
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer {
+  background-color: #fff;
+  font-size: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+footer .footer {
+  color: var(--text-color);
+}
+
+footer .footer a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+}
+
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 footer .footer p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+/* ---------- Brand row (logo + social icons), centered ---------- */
+footer .footer-brand {
+  max-width: var(--footer-content-max);
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+
+footer .footer-brand > p img {
+  width: 140px;
+  height: auto;
+}
+
+footer .footer-brand .footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgb(38 38 38);
+  transition: opacity 0.2s ease;
+}
+
+footer .footer-social a:hover {
+  opacity: 0.8;
+}
+
+footer .footer-social svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+/* ---------- Link columns ---------- */
+footer .footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: var(--footer-content-max);
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+}
+
+footer .footer-links {
+  flex: 1 1 180px;
+  min-width: 160px;
+}
+
+/* first column (Contact us) is featured — larger heading, wider */
+footer .footer-columns > .footer-links:first-child {
+  flex: 1 1 260px;
+}
+
+footer .footer-columns > .footer-links:first-child > h2:first-child {
+  font-size: 41.6px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 24px;
+}
+
+footer .footer-links h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--text-color);
+}
+
+footer .footer-links h2:not(:first-child) {
+  margin-top: 32px;
+}
+
+footer .footer-links li {
+  margin: 0 0 14px;
+}
+
+footer .footer-links a {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ---------- Bottom bar (purple) ---------- */
+footer .footer-bottom {
+  background: var(--footer-purple);
+  color: #fff;
+}
+
+footer .footer-bottom p,
+footer .footer-bottom ul {
+  max-width: var(--footer-content-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+footer .footer-bottom > p:first-child {
+  padding-top: 32px;
+  font-size: 15px;
+}
+
+footer .footer-bottom > p {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+footer .footer-bottom a:any-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer .footer-bottom ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  padding-top: 4px;
+  padding-bottom: 32px;
+  font-size: 15px;
+}
+
+footer .footer-bottom ul li {
+  white-space: nowrap;
+}
+
+/* pipe separators between language links */
+footer .footer-bottom ul li:not(:last-child)::after {
+  content: '|';
+  margin: 0 8px;
+  color: rgb(255 255 255 / 60%);
+  text-decoration: none;
+}
+
+/* ============================================================
+   Mobile (< 900px)
+   ============================================================ */
+@media (width < 900px) {
+  footer .footer-columns {
+    flex-direction: column;
+    gap: 0;
+    padding: 16px 16px 32px;
+  }
+
+  footer .footer-columns > .footer-links:first-child > h2:first-child {
+    font-size: 32px;
+  }
+
+  footer .footer-links {
+    flex: 1 1 100%;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 24px;
+    margin-top: 24px;
+  }
+
+  footer .footer-columns > .footer-links:first-child {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
   }
 }

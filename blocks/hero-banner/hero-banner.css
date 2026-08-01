@@ -1,0 +1,185 @@
+/* Block: hero-banner — Aetna homepage hero.
+   A full-width lifestyle photo with a white content box (H1 + welcome copy)
+   overlaid on the left. Values extracted from source computed styles. */
+
+/* Let the hero span the wider brand content width, not the default 1200px section. */
+.hero-banner-container .hero-banner-wrapper {
+  max-width: 1488px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-banner {
+  position: relative;
+}
+
+/* --- Image row --- */
+.hero-banner > div:first-child {
+  margin: 0;
+}
+
+.hero-banner picture {
+  display: block;
+  margin: 0;
+  line-height: 0;
+}
+
+.hero-banner img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+/* --- White content box --- */
+.hero-banner > div:last-child {
+  position: relative;
+  box-sizing: border-box;
+  margin: -48px 12px 0;
+  padding: 24px 24px 32px;
+  border-radius: 32px;
+  background-color: var(--background-color);
+  box-shadow: rgb(0 0 0 / 20%) 0 1.5px 10px 0;
+}
+
+.hero-banner h1 {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--text-color);
+}
+
+.hero-banner > div:last-child p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.56;
+  color: var(--text-color);
+}
+
+@media (width >= 900px) {
+  /* Stack image and content box in the same grid cell so the box overlays the photo.
+     align-items: start keeps the image a fixed height so the taller content box can
+     extend slightly below it, matching the source. */
+  .hero-banner {
+    display: grid;
+    align-items: start;
+  }
+
+  .hero-banner > div:first-child {
+    display: grid;
+    grid-area: 1 / 1;
+  }
+
+  /* Image keeps its own height (close to the 1800x520 source aspect) rather than
+     stretching to the grid row, so minimal cropping and the box can overhang. */
+  .hero-banner picture,
+  .hero-banner img {
+    height: 420px;
+  }
+
+  .hero-banner img {
+    object-position: center;
+  }
+
+  .hero-banner > div:last-child {
+    grid-area: 1 / 1;
+    place-self: start start;
+    box-sizing: border-box;
+    width: 572px;
+    max-width: calc(100% - 144px);
+    min-height: 404px;
+    margin: 56px 0 0 72px;
+    padding: 32px 32px 40px;
+  }
+
+  .hero-banner h1 {
+    margin: 0 0 24px;
+    font-size: var(--heading-font-size-xxl);
+    line-height: 68px;
+  }
+
+  .hero-banner > div:last-child p {
+    font-size: 19.2px;
+    line-height: 30px;
+  }
+}
+
+/* ============================================================
+   CVS / MinuteClinic hero variant (body.cvs)
+   Deep-blue full-bleed banner, white heading on the left, photo on the
+   right in a heart-shaped clip — mirrors cvs.com/minuteclinic.
+   ============================================================ */
+body.cvs .hero-banner-container {
+  background-color: rgb(10 75 140);
+}
+
+body.cvs .hero-banner-container .hero-banner-wrapper {
+  max-width: 1400px;
+}
+
+/* full-width blue banner: no white box, no image border-radius, white text.
+   The MinuteClinic hero art is a transparent PNG with the two-rounded-square
+   cutout already baked in, so we display it as-is (no clip-path) right-aligned
+   over the blue, with the heading overlaid on the left. */
+body.cvs .hero-banner > div:last-child {
+  margin: 0;
+  padding: 40px 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.cvs .hero-banner h1,
+body.cvs .hero-banner > div:last-child p {
+  color: #fff;
+}
+
+body.cvs .hero-banner picture {
+  line-height: 0;
+}
+
+body.cvs .hero-banner img {
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  /* Stack image and text in the same grid cell; the transparent PNG sits on
+     the right at its natural aspect (cutout intact), heading overlays on left. */
+  body.cvs .hero-banner {
+    display: grid;
+    align-items: center;
+    min-height: 432px;
+  }
+
+  body.cvs .hero-banner > div:first-child {
+    grid-area: 1 / 1;
+    display: flex;
+    justify-content: flex-end;
+    align-self: stretch;
+  }
+
+  /* image fills the full banner height (like cvs.com); width follows aspect */
+  body.cvs .hero-banner picture,
+  body.cvs .hero-banner img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+  }
+
+  body.cvs .hero-banner > div:last-child {
+    grid-area: 1 / 1;
+    place-self: center start;
+    z-index: 1;
+    width: 50%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 40px 0 40px 24px;
+  }
+}

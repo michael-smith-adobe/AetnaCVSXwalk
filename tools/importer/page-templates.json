@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.aetna.com/"
+      ],
+      "representativeUrl": "https://www.aetna.com/",
+      "coverageGaps": [],
+      "description": "Aetna homepage - hero banner, audience selection cards (next best action), secondary audience cards, and legal notices disclaimer",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": [
+            "#content__main > div.experiencefragment.section:nth-of-type(1) .phb__herobanner",
+            ".phb.phb__herobanner"
+          ]
+        },
+        {
+          "name": "cards-audience",
+          "instances": [
+            "#content__main > div.nextbestaction.section:nth-of-type(2) ul.cmp-nextbestaction__items",
+            "#content__main > div.nextbestaction.section:nth-of-type(3) ul.cmp-nextbestaction__items",
+            "ul.cmp-nextbestaction__items"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "Hero banner",
+          "selector": "#content__main > div.experiencefragment.section:nth-of-type(1)",
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "Audience selection intro + cards",
+          "selector": "#content__main > div.nextbestaction.section:nth-of-type(2)",
+          "style": null,
+          "blocks": [
+            "cards-audience"
+          ],
+          "defaultContent": [
+            "#content__main > div.nextbestaction.section:nth-of-type(2) .cmp-nextbestaction__headline"
+          ]
+        },
+        {
+          "id": "rc3",
+          "name": "Secondary audience cards",
+          "selector": "#content__main > div.nextbestaction.section:nth-of-type(3)",
+          "style": null,
+          "blocks": [
+            "cards-audience"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "Legal notices",
+          "selector": "#content__main > div.experiencefragment.section:nth-of-type(4)",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#content__main > div.experiencefragment.section:nth-of-type(4) .cmp-disclaimer"
+          ]
+        }
+      ]
+    }
+  ]
+}

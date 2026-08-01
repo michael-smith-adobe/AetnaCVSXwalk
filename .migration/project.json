@@ -1,0 +1,14 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "aetna-cvs-xwalk": {
+      "previewOrg": "michael-smith-adobe",
+      "previewSite": "aetna-cvs-xwalk",
+      "aemSitePath": "/content/aetna-cvs-xwalk",
+      "aemAssetsFolderPath": "/content/dam/aetna-cvs-xwalk",
+      "aemSiteName": "aetna-cvs-xwalk",
+      "aemSiteTitle": "aetna-CVS",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

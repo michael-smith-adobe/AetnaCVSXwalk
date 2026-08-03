@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p168906-e1803360.adobeaemcloud.com/bin/franklin.delivery/michael-smith-adobe/AetnaCVSXwalk/main"
+    url: "https://author-p168906-e1803360.adobeaemcloud.com/bin/franklin.delivery/michael-smith-adobe/aetnacvsxwalk/main"
     type: "markup"
     suffix: ".html"

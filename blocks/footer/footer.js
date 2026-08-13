@@ -34,8 +34,20 @@ function decorateSocialIcons(list) {
 export default async function decorate(block) {
   // load footer as fragment (dual-fetch: localhost then DA/EDS)
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/content/footer';
+  let footerPath;
+  if (footerMeta) {
+    footerPath = new URL(footerMeta, window.location).pathname;
+  } else {
+    // No explicit `footer` metadata: load the footer that sits as a sibling of
+    // the current page (e.g. /aetna/footer for /aetna/*, /cvs/footer for
+    // /cvs/*), so each brand section gets its own footer without per-page
+    // metadata. Mirrors the theme-by-path fallback in scripts.js.
+    const dir = window.location.pathname.replace(/\/[^/]*$/, '');
+    footerPath = `${dir}/footer`;
+  }
   let fragment = await loadFragment(footerPath);
+  // Fallbacks: site-root footer, then legacy /content/footer.
+  if (!fragment) fragment = await loadFragment('/footer');
   if (!fragment) fragment = await loadFragment('/content/footer');
 
   block.textContent = '';

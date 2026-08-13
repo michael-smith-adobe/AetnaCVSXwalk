@@ -82,8 +82,20 @@ function buildSearch() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/content/nav';
+  let navPath;
+  if (navMeta) {
+    navPath = new URL(navMeta, window.location).pathname;
+  } else {
+    // No explicit `nav` metadata: load the nav that sits as a sibling of the
+    // current page (e.g. /aetna/nav for /aetna/*, /cvs/nav for /cvs/*), so each
+    // brand section gets its own header without per-page metadata. Mirrors the
+    // theme-by-path fallback in scripts.js.
+    const dir = window.location.pathname.replace(/\/[^/]*$/, '');
+    navPath = `${dir}/nav`;
+  }
   let fragment = await loadFragment(navPath);
+  // Fallbacks: site-root nav, then legacy /content/nav.
+  if (!fragment) fragment = await loadFragment('/nav');
   if (!fragment) fragment = await loadFragment('/content/nav');
 
   // When the page uses the CVS theme, render the CVS.com-style header instead

@@ -1,6 +1,39 @@
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
+ * Path rewrite for the Content Fragment delivery URL.
+ *
+ * The aem-content picker stores the CF's authored path (e.g. a DAM path like
+ * /content/dam/aetna-cvs-xwalk/articles/<name>). Content Fragments are
+ * published to Edge Delivery as HTML under a path-mapped delivery path. If your
+ * Config Service maps the authored path onto a different delivery path, set the
+ * from/to prefixes here so the block fetches the delivered `.plain.html`.
+ * Leave `from` empty to disable the rewrite (fetch the reference path as-is).
+ */
+const CF_PATH_REWRITE = { from: '', to: '' };
+
+/**
+ * Normalize a CF reference (as stored by the aem-content picker) into the
+ * delivery pathname the block should fetch `.plain.html` from.
+ * @param {string} ref raw reference (href or text)
+ * @returns {string} delivery pathname
+ */
+function toDeliveryPath(ref) {
+  let path = ref.trim();
+  // Absolute URL → pathname only.
+  try { path = new URL(path, window.location).pathname; } catch (e) { /* keep as-is */ }
+  // Strip a CF-internal data suffix if the picker included one.
+  path = path.replace(/\/jcr:content(\/data(\/master)?)?$/i, '');
+  // Strip an authoring .html extension and any trailing slash.
+  path = path.replace(/\.html$/i, '').replace(/\/$/, '');
+  // Optional Config-Service path mapping (DAM/author path → delivery path).
+  if (CF_PATH_REWRITE.from && path.startsWith(CF_PATH_REWRITE.from)) {
+    path = CF_PATH_REWRITE.to + path.slice(CF_PATH_REWRITE.from.length);
+  }
+  return path;
+}
+
+/**
  * Article block.
  *
  * Renders an AEM article Content Fragment selected via the block's
@@ -26,7 +59,7 @@ export default async function decorate(block) {
     return;
   }
 
-  const fragment = await loadFragment(new URL(path, window.location).pathname);
+  const fragment = await loadFragment(toDeliveryPath(path));
   if (!fragment) {
     // Reference could not be resolved — render nothing rather than a broken link.
     block.remove();

@@ -132,13 +132,21 @@ export default async function decorate(block) {
   const brand = nav.querySelector('.nav-brand');
   const main = nav.querySelector('.nav-main');
 
-  // Brand: strip button styling from the logo link, add search box.
+  // EDS auto-decorates a standalone link in its own paragraph as a pill button
+  // (<p class="button-container"><a class="button">). The Aetna nav is authored
+  // as such links, so strip that decoration across the whole nav and unwrap the
+  // button-container <p> — leaving <li> > <a> so the header CSS tab styling
+  // applies (otherwise every tab renders as a purple pill).
+  nav.querySelectorAll('a.button').forEach((a) => {
+    a.classList.remove('button', 'primary', 'secondary');
+    if (!a.className) a.removeAttribute('class');
+  });
+  nav.querySelectorAll('p.button-container').forEach((p) => {
+    p.replaceWith(...p.childNodes);
+  });
+
+  // Brand: add search box (logo link de-buttonized above).
   if (brand) {
-    brand.querySelectorAll('a.button').forEach((a) => {
-      a.className = '';
-      const bc = a.closest('.button-container');
-      if (bc) bc.className = '';
-    });
     brand.append(buildSearch());
   }
 

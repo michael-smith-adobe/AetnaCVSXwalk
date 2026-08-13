@@ -1,9 +1,9 @@
 /* ============================================================
    Article block
-   Renders an AEM article Content Fragment as a styled article.
-   Colors/accents use the brand design tokens so the article
-   adopts the current brand palette (body.aetna → purple,
-   body.cvs → red) with no per-brand code.
+   Renders an AEM article Content Fragment (title, author, date,
+   banner, body) as a styled article. Accents use the brand
+   design tokens so the article adopts the current brand palette
+   (body.aetna → purple, body.cvs → red) with no per-brand code.
    ============================================================ */
 
 .article.block {
@@ -16,18 +16,8 @@
   margin: 0 0 20px;
 }
 
-/* Category / eyebrow — the first heading level 6 or a lead label */
-.article .article-content h6 {
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--brand-purple, var(--link-color));
-  margin-bottom: 8px;
-}
-
-/* Title */
-.article .article-content h1 {
+/* Field: title */
+.article .article-title {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
   font-weight: 700;
@@ -36,42 +26,57 @@
   margin-bottom: 12px;
 }
 
-/* Section subheadings within the body */
-.article .article-content h2 {
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-l);
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--text-color);
-  margin-top: 32px;
-}
-
-/* Byline */
+/* Fields: author + date (timing) — combined byline row */
 .article .article-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
   font-size: var(--body-font-size-xs);
   color: var(--dark-color);
   border-bottom: 1px solid var(--light-color);
   padding-bottom: 16px;
+  margin-bottom: 24px;
 }
 
-/* Hero image */
-.article .article-hero {
+.article .article-byline p {
+  margin: 0;
+}
+
+/* The author line reads in the brand accent to tie it to the palette */
+.article .article-byline p:first-child {
+  font-weight: 700;
+  color: var(--brand-purple, var(--link-color));
+}
+
+/* Field: banner image */
+.article .article-banner {
   margin: 0 0 28px;
 }
 
-.article .article-hero picture,
-.article .article-hero img {
+.article .article-banner picture,
+.article .article-banner img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-/* Body copy */
-.article .article-content p {
+/* Field: body */
+.article .article-body-text {
   font-size: var(--body-font-size-m);
   line-height: 1.7;
   color: var(--text-color);
+}
+
+/* Section subheadings within the body */
+.article .article-content h2,
+.article .article-content h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-color);
+  margin-top: 32px;
 }
 
 /* Links pick up the brand link color */

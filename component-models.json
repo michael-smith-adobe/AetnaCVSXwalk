@@ -619,6 +619,59 @@
     ]
   },
   {
+    "id": "text-style-item",
+    "fields": [
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Text Style",
+        "description": "Named style applied to the text. Renders in the current brand's palette (purple on Aetna, red on CVS).",
+        "value": "body",
+        "options": [
+          {
+            "name": "Eyebrow (small uppercase label)",
+            "value": "eyebrow"
+          },
+          {
+            "name": "Display (largest statement)",
+            "value": "display"
+          },
+          {
+            "name": "Headline (section heading)",
+            "value": "headline"
+          },
+          {
+            "name": "Lead (intro paragraph)",
+            "value": "lead"
+          },
+          {
+            "name": "Body (default paragraph)",
+            "value": "body"
+          },
+          {
+            "name": "Emphasis (brand-accent bold)",
+            "value": "emphasis"
+          },
+          {
+            "name": "Quote (pull quote)",
+            "value": "quote"
+          },
+          {
+            "name": "Fine print (muted disclaimer)",
+            "value": "fineprint"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "video",
     "fields": [
       {

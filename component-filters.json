@@ -97,6 +97,12 @@
     ]
   },
   {
+    "id": "text-styles",
+    "components": [
+      "text-style-item"
+    ]
+  },
+  {
     "id": "video",
     "components": []
   }

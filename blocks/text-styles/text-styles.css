@@ -1,0 +1,100 @@
+/* ============================================================
+   Text Styles block
+   Named, author-selectable text styles defined in terms of the
+   brand design tokens, so each style automatically adopts the
+   current brand palette (body.aetna → purple, body.cvs → red).
+   Only the styling is per-brand; the content is identical.
+   ============================================================ */
+
+.text-styles.block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text-styles .text-style {
+  margin: 0;
+}
+
+.text-styles .text-style > * {
+  margin: 0;
+}
+
+/* Eyebrow: small uppercase brand-accent label above a heading */
+.text-styles .text-style-eyebrow {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-purple, var(--link-color));
+}
+
+/* Display: the largest, boldest statement text */
+.text-styles .text-style-display {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text-color);
+}
+
+/* Headline: section-level heading */
+.text-styles .text-style-headline {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+/* Lead: larger intro paragraph */
+.text-styles .text-style-lead {
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* Body: default paragraph */
+.text-styles .text-style-body {
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Emphasis: brand-accent highlighted line */
+.text-styles .text-style-emphasis {
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  color: var(--brand-purple, var(--link-color));
+}
+
+/* Quote: pull-quote with a brand-accent left rule */
+.text-styles .text-style-quote {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--text-color);
+  padding-left: 20px;
+  border-left: 4px solid var(--brand-purple, var(--link-color));
+}
+
+/* Fine print: small muted legal/disclaimer text */
+.text-styles .text-style-fineprint {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+  color: var(--dark-color);
+}
+
+/* Links inside any sample pick up the brand link color */
+.text-styles .text-style a:any-link {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.text-styles .text-style a:hover {
+  color: var(--link-hover-color);
+}

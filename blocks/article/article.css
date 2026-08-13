@@ -1,0 +1,96 @@
+/* ============================================================
+   Article block
+   Renders an AEM article Content Fragment as a styled article.
+   Colors/accents use the brand design tokens so the article
+   adopts the current brand palette (body.aetna → purple,
+   body.cvs → red) with no per-brand code.
+   ============================================================ */
+
+.article.block {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.article .article-content > * {
+  margin: 0 0 20px;
+}
+
+/* Category / eyebrow — the first heading level 6 or a lead label */
+.article .article-content h6 {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-purple, var(--link-color));
+  margin-bottom: 8px;
+}
+
+/* Title */
+.article .article-content h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-color);
+  margin-bottom: 12px;
+}
+
+/* Section subheadings within the body */
+.article .article-content h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-color);
+  margin-top: 32px;
+}
+
+/* Byline */
+.article .article-byline {
+  font-size: var(--body-font-size-xs);
+  color: var(--dark-color);
+  border-bottom: 1px solid var(--light-color);
+  padding-bottom: 16px;
+}
+
+/* Hero image */
+.article .article-hero {
+  margin: 0 0 28px;
+}
+
+.article .article-hero picture,
+.article .article-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Body copy */
+.article .article-content p {
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+/* Links pick up the brand link color */
+.article .article-content a:any-link {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.article .article-content a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Pull quote inside an article */
+.article .article-content blockquote {
+  margin: 28px 0;
+  padding-left: 20px;
+  border-left: 4px solid var(--brand-purple, var(--link-color));
+  font-family: var(--heading-font-family);
+  font-style: italic;
+  font-size: var(--heading-font-size-m);
+  color: var(--text-color);
+}

@@ -161,6 +161,17 @@
     ]
   },
   {
+    "id": "article",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Article Content Fragment",
+        "description": "Reference the AEM article Content Fragment to render on this page."
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {

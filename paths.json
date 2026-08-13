@@ -2,6 +2,14 @@
   "mappings": [
     "/content/aetnacvsxwalk/:/",
     "/content/aetnacvsxwalk/metadata:/metadata.json",
-    "/content/aetnacvsxwalk/configuration:/.helix/config.json"
+    "/content/aetnacvsxwalk/configuration:/.helix/placeholders.json",
+    "/content/dam/aetnacvsxwalk/:/"
+  ],
+  "includes": [
+    "/content/aetnacvsxwalk/**",
+    "/content/dam/aetna-cvs-xwalk/**"
+  ],
+  "excludes": [
+    "/content/aetnacvsxwalk/**/drafts/**"
   ]
 }

@@ -9,6 +9,16 @@
       "aemSiteName": "aetna-cvs-xwalk",
       "aemSiteTitle": "aetna-CVS",
       "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    },
+    "aetnacvsxwalk": {
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+      "previewOrg": "michael-smith-adobe",
+      "previewSite": "aetnacvsxwalk",
+      "aemSitePath": "/content/aetnacvsxwalk",
+      "aemAssetsFolderPath": "/content/dam/aetnacvsxwalk",
+      "aemSiteName": "aetnacvsxwalk",
+      "aemSiteTitle": "Aetna CVS",
+      "baseUrl": "https://aetna.com"
     }
   }
 }

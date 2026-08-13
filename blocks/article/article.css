@@ -89,13 +89,9 @@
   color: var(--link-hover-color);
 }
 
-/* Pull quote inside an article */
-.article .article-content blockquote {
+/* Pull quotes are authored as the dedicated Quote block (blockquote as a raw
+   element is not a supported CF authoring construct); the Quote block brings
+   its own styling. Add brand-accent spacing when nested in an article. */
+.article .quote {
   margin: 28px 0;
-  padding-left: 20px;
-  border-left: 4px solid var(--brand-purple, var(--link-color));
-  font-family: var(--heading-font-family);
-  font-style: italic;
-  font-size: var(--heading-font-size-m);
-  color: var(--text-color);
 }

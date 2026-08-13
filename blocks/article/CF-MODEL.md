@@ -26,8 +26,10 @@ Content Fragments published to Edge Delivery are delivered as HTML. The
 2. **author** + **date** → the paragraphs between the title and the banner →
    grouped into `.article-byline` (author first/accented, date second)
 3. **banner** → first image → `.article-banner` (full-width, rounded hero)
-4. **body** → remaining content → `.article-body-text` (plus any h2/h3,
-   blockquote, links styled by the block)
+4. **body** → remaining content → `.article-body-text` (plus any h2/h3 and
+   links styled by the block). For pull quotes, author a **Quote block** in the
+   body rather than a raw blockquote element — raw blockquote is not a supported
+   CF authoring construct and will block content sync.
 
 All styling is driven by the brand design tokens (`--brand-purple`,
 `--link-color`, `--text-color`, heading/body size vars), so the same CF renders

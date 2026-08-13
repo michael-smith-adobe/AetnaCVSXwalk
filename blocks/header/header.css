@@ -69,6 +69,7 @@ header nav .nav-utility > ul > li > .nav-trigger {
   color: var(--nav-link);
   background: none;
   border: 0;
+  border-radius: 0; /* override global pill button radius so tabs read as flat tabs */
   cursor: pointer;
   font-family: inherit;
 }
@@ -166,9 +167,11 @@ header nav .nav-brand > ul a:hover {
 header nav .nav-search {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  height: 44px;
   border: 1px solid rgb(180 180 180);
   border-radius: 24px;
-  padding: 4px 4px 4px 16px;
+  padding: 0 6px 0 16px;
   min-width: 260px;
 }
 
@@ -176,14 +179,18 @@ header nav .nav-search input {
   border: 0;
   outline: none;
   flex: 1;
+  min-width: 0;
   font: inherit;
   font-size: 15px;
+  line-height: 1.2;
   background: transparent;
 }
 
 header nav .nav-search button {
-  width: 34px;
-  height: 34px;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   border: 0;
   border-radius: 50%;
   background: transparent;
@@ -231,6 +238,7 @@ header nav .nav-main > ul > li > .nav-trigger {
   line-height: 1;
   background: none;
   border: 0;
+  border-radius: 0; /* override global pill button radius */
   cursor: pointer;
   font-family: inherit;
   border-bottom: 4px solid transparent;
